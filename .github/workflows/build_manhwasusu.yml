@@ -12,8 +12,15 @@ jobs:
         with:
           java-version: 17
           distribution: temurin
+      - name: Make gradlew executable
+        run: chmod +x gradlew
       - name: Build extension
-        run: ./gradlew :src:en:manhwasusu:assembleDebug -x spotlessCheck
+        run: ./gradlew :src:en:manhwasusu:assembleDebug -x spotlessCheck --info > build_log.txt 2>&1 || true
+      - name: Upload log
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build_log.txt
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
