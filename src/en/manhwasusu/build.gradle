@@ -3,6 +3,8 @@ ext {
     extClass = '.ManhwaSusu'
     extVersionCode = 1
     isNsfw = true
+    themePkg = 'madara'
+    baseUrl = 'https://manhwasusu.com'
 }
 
 apply from: "$rootDir/common.gradle"
