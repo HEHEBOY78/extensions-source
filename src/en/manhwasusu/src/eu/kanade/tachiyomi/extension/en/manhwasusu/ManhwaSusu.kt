@@ -1,6 +1,7 @@
 package eu.kanade.tachiyomi.extension.en.manhwasusu
 
 import eu.kanade.tachiyomi.multisrc.madara.Madara
+import eu.kanade.tachiyomi.network.GET
 import okhttp3.Request
 
 class ManhwaSusu : Madara(
