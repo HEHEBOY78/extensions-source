@@ -6,4 +6,7 @@ class ManhwaSusu : Madara(
     "ManhwaSusu",
     "https://manhwasusu.com",
     "en",
-)
+) {
+    override val useNewChapterEndpoint = true
+    override val mangaSubString = "manhwa"
+}
