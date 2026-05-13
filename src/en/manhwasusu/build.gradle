@@ -5,6 +5,7 @@ ext {
     isNsfw = true
     themePkg = 'madara'
     baseUrl = 'https://manhwasusu.com'
+    overrideVersionCode = 0
 }
 
 apply from: "$rootDir/common.gradle"
