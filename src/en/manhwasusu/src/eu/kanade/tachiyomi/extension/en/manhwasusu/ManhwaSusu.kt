@@ -1,6 +1,7 @@
 package eu.kanade.tachiyomi.extension.en.manhwasusu
 
 import eu.kanade.tachiyomi.multisrc.madara.Madara
+import okhttp3.Request
 
 class ManhwaSusu : Madara(
     "ManhwaSusu",
@@ -8,5 +9,14 @@ class ManhwaSusu : Madara(
     "en",
 ) {
     override val useNewChapterEndpoint = true
-    override val mangaSubString = "manhwa"
+
+    override fun popularMangaRequest(page: Int): Request {
+        val pageStr = if (page > 1) "page/$page/" else ""
+        return GET("$baseUrl/type/manga/$pageStr", headers)
+    }
+
+    override fun latestUpdatesRequest(page: Int): Request {
+        val pageStr = if (page > 1) "page/$page/" else ""
+        return GET("$baseUrl/type/manga/${pageStr}?m_orderby=latest", headers)
+    }
 }
