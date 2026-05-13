@@ -10,6 +10,7 @@ class ManhwaSusu : Madara(
     "en",
 ) {
     override val useNewChapterEndpoint = true
+    override val mangaSubString = "manga"
 
     override fun popularMangaRequest(page: Int): Request {
         val pageStr = if (page > 1) "page/$page/" else ""
@@ -20,4 +21,6 @@ class ManhwaSusu : Madara(
         val pageStr = if (page > 1) "page/$page/" else ""
         return GET("$baseUrl/type/manga/${pageStr}?m_orderby=latest", headers)
     }
+
+    override val popularMangaUrlSelector = "div.page-item-detail"
 }
